@@ -99,5 +99,10 @@ public class EmployeeController {
         return  Result.success(pageResult);
     }
 
-
+    @PostMapping("/status/{status}")
+    @ApiOperation("员工状态修改接口")
+    public Result startOrStop(@PathVariable Integer status, Long id){
+        employeeService.startOrStop(status, id);
+        return Result.success();
+    }
 }
