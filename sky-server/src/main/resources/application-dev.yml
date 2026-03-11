@@ -6,3 +6,8 @@ sky:
     database: sky_take_out
     username: root
     password: 9669
+  alioss:
+    access-key-id: LTAI5tKB8PpgLuAyvTaxyEGf
+    access-key-secret: dTWxSuuQIEo33dleTnGQoyG6wJhrrW
+    bucket-name: zanno
+    endpoint: oss-cn-hangzhou.aliyuncs.com
