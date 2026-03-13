@@ -7,7 +7,7 @@ sky:
     username: root
     password: 9669
   alioss:
-    access-key-id: LTAI5tKB8PpgLuAyvTaxyEGf
-    access-key-secret: dTWxSuuQIEo33dleTnGQoyG6wJhrrW
+    access-key-id: ${OSS_ACCESS_KEY_ID}
+    access-key-secret: ${OSS_ACCESS_KEY_SECRET}
     bucket-name: zanno
     endpoint: oss-cn-hangzhou.aliyuncs.com
