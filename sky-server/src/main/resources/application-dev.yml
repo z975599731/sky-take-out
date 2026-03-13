@@ -11,3 +11,8 @@ sky:
     access-key-secret: ${OSS_ACCESS_KEY_SECRET}
     bucket-name: zanno
     endpoint: oss-cn-hangzhou.aliyuncs.com
+  redis:
+    host: localhost
+    port: 6379
+    password: 9669
+    database: 0
