@@ -15,6 +15,7 @@ import com.sky.mapper.SetmealDishMapper;
 import com.sky.mapper.SetmealMapper;
 import com.sky.result.PageResult;
 import com.sky.service.SetmealService;
+import com.sky.vo.DishItemVO;
 import com.sky.vo.SetmealVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.aspectj.weaver.ast.Var;
@@ -100,5 +101,18 @@ public class SetmealServiceImpl implements SetmealService {
     @Override
     public void updateStatus(Long id, Integer status) {
         setmealMapper.updateStatus(id, status);
+    }
+    public List<Setmeal> list(Setmeal setmeal) {
+        List<Setmeal> list = setmealMapper.list(setmeal);
+        return list;
+    }
+
+    /**
+     * 根据id查询菜品选项
+     * @param id
+     * @return
+     */
+    public List<DishItemVO> getDishItemById(Long id) {
+        return setmealMapper.getDishItemBySetmealId(id);
     }
 }
