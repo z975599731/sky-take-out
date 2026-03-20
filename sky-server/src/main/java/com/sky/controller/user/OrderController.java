@@ -23,6 +23,12 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    /**
+     * 提交订单
+     *
+     * @param ordersSubmitDTO 订单提交DTO
+     * @return 订单提交VO
+     */
     @PostMapping("/submit")
     public Result<OrderSubmitVO> submit(@RequestBody OrdersSubmitDTO ordersSubmitDTO) {
         OrderSubmitVO orderSubmitVO = orderService.submit(ordersSubmitDTO);
@@ -60,5 +66,13 @@ public class OrderController {
         // 调用模拟支付的方法
         OrderPaymentVO orderPaymentVO = orderService.paymentMock(ordersPaymentDTO);
         return Result.success(orderPaymentVO);
+    }
+
+    @GetMapping("/reminder/{id}")
+    public Result reminder(@PathVariable Long id) {
+        // 这里可以实现催单的逻辑，例如发送通知给商家等
+        log.info("用户催单，订单ID：{}", id);
+        orderService.reminder(id);
+        return Result.success();
     }
 }

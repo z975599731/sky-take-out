@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sky.mapper.ReportMapper">
+
+
+    <select id="sumByDateAndStatus" resultType="java.lang.Double">
+        select sum(amount)
+        from orders
+        <where>
+            <if test="beginTime != null">
+                and order_time &gt;= #{beginTime}
+            </if>
+            <if test="endTime != null">
+                and order_time &lt;= #{endTime}
+            </if>
+            and status = #{status}
+        </where>
+    </select>
+    <!--    map.put("beginTime", beginTime);-->
+    <!--    map.put("endTime", endTime);-->
+    <!--    map.put("status", Orders.COMPLETED);-->
+</mapper>
+

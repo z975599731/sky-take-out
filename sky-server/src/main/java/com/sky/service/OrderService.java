@@ -36,4 +36,10 @@ public interface OrderService {
     void cancelOrder(OrdersCancelDTO ordersCancelDTO);
 
     OrderPaymentVO paymentMock(OrdersPaymentDTO ordersPaymentDTO);
+
+    void delivery(Long id);
+
+    void complete(Long id);
+
+    void reminder(Long id);
 }
