@@ -11,15 +11,17 @@ import com.sky.vo.SetmealVO;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface SetmealMapper {
 
     @Update("update setmeal set status = #{status} where id = #{id}")
-   void updateStatus(Long id, Integer status);
+    void updateStatus(Long id, Integer status);
 
     /**
      * 根据分类id查询套餐的数量
+     *
      * @param id
      * @return
      */
@@ -42,20 +44,25 @@ public interface SetmealMapper {
 
     void updateById(Setmeal setmeal);
 
- /**
-  * 动态条件查询套餐
-  * @param setmeal
-  * @return
-  */
- List<Setmeal> list(Setmeal setmeal);
+    /**
+     * 动态条件查询套餐
+     *
+     * @param setmeal
+     * @return
+     */
+    List<Setmeal> list(Setmeal setmeal);
 
- /**
-  * 根据套餐id查询菜品选项
-  * @param setmealId
-  * @return
-  */
- @Select("select sd.name, sd.copies, d.image, d.description " +
-         "from setmeal_dish sd left join dish d on sd.dish_id = d.id " +
-         "where sd.setmeal_id = #{setmealId}")
- List<DishItemVO> getDishItemBySetmealId(Long setmealId);
+    /**
+     * 根据套餐id查询菜品选项
+     *
+     * @param setmealId
+     * @return
+     */
+    @Select("select sd.name, sd.copies, d.image, d.description " +
+            "from setmeal_dish sd left join dish d on sd.dish_id = d.id " +
+            "where sd.setmeal_id = #{setmealId}")
+    List<DishItemVO> getDishItemBySetmealId(Long setmealId);
+
+    Integer countByMap(Map map);
+
 }
